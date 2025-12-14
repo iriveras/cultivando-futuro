@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Heart, CheckCircle, Leaf, Shield, Users } from "lucide-react";
+import { Heart, CheckCircle, Leaf, Shield, Users, CreditCard, Building2, Copy, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -313,6 +313,158 @@ export default function Donaciones() {
               <Leaf className="mx-auto h-6 w-6 text-primary" />
               <p className="mt-3 font-display italic text-muted-foreground">
                 "Gracias por sembrar esperanza junto a nosotros."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Payment Methods Section */}
+      <section className="bg-muted/30 py-16 md:py-24">
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                Métodos de <span className="text-primary">Pago</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Elige la opción que más te convenga para realizar tu aporte.
+              </p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2">
+              {/* Bank Transfer */}
+              <Card className="shadow-card">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-lg bg-primary/10 p-3">
+                      <Building2 className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Transferencia Bancaria</CardTitle>
+                      <CardDescription>Transfiere directamente a nuestra cuenta</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="rounded-lg bg-muted/50 p-4 space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Banco:</span>
+                      <span className="font-medium">Bancolombia</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Tipo de cuenta:</span>
+                      <span className="font-medium">Ahorros</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Número:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium font-mono">123-456789-00</span>
+                        <button 
+                          onClick={() => {
+                            navigator.clipboard.writeText("12345678900");
+                            toast({ title: "Copiado", description: "Número de cuenta copiado al portapapeles" });
+                          }}
+                          className="p-1 hover:bg-muted rounded transition-colors"
+                          aria-label="Copiar número de cuenta"
+                        >
+                          <Copy className="h-4 w-4 text-muted-foreground" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Titular:</span>
+                      <span className="font-medium">Aportecampo</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">NIT:</span>
+                      <span className="font-medium">900.123.456-7</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground text-center">
+                    Envíanos el comprobante a nuestro correo o WhatsApp para confirmar tu donación.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Online Platforms */}
+              <Card className="shadow-card">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-lg bg-secondary/20 p-3">
+                      <CreditCard className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Plataformas Online</CardTitle>
+                      <CardDescription>Dona con tarjeta o billetera virtual</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <a
+                    href="https://www.paypal.com/donate/?hosted_button_id=EXAMPLE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-lg border border-border p-4 hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-[#003087] flex items-center justify-center text-white font-bold text-sm">
+                        PP
+                      </div>
+                      <div>
+                        <span className="font-medium">PayPal</span>
+                        <p className="text-xs text-muted-foreground">Tarjeta internacional</p>
+                      </div>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </a>
+
+                  <a
+                    href="https://www.mercadopago.com.co/checkout/v1/redirect?pref_id=EXAMPLE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-lg border border-border p-4 hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-[#00B1EA] flex items-center justify-center text-white font-bold text-sm">
+                        MP
+                      </div>
+                      <div>
+                        <span className="font-medium">Mercado Pago</span>
+                        <p className="text-xs text-muted-foreground">PSE, Nequi, Daviplata</p>
+                      </div>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </a>
+
+                  <a
+                    href="https://epayco.com/checkout/EXAMPLE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-lg border border-border p-4 hover:bg-muted/50 transition-colors group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-[#FF6B00] flex items-center justify-center text-white font-bold text-sm">
+                        eP
+                      </div>
+                      <div>
+                        <span className="font-medium">ePayco</span>
+                        <p className="text-xs text-muted-foreground">Tarjetas y pagos locales</p>
+                      </div>
+                    </div>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  </a>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Note */}
+            <div className="mt-10 text-center p-6 rounded-xl bg-gradient-warm">
+              <p className="text-muted-foreground">
+                ¿Tienes dudas sobre cómo donar? Escríbenos a{" "}
+                <a href="mailto:donaciones@aportecampo.org" className="text-primary font-medium hover:underline">
+                  donaciones@aportecampo.org
+                </a>
               </p>
             </div>
           </div>
