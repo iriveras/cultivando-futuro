@@ -55,7 +55,7 @@ export default function Index() {
         <div className="container relative z-10 py-20">
           <div className="max-w-3xl">
             <h1 className="animate-fade-up font-display text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
-              Sembramos esperanza,<br />
+              Sssembramos esperanza,<br />
               <span className="text-secondary">cultivamos futuro</span>
             </h1>
             <p className="animate-fade-up-delay-1 mt-6 text-lg text-primary-foreground/90 md:text-xl">
